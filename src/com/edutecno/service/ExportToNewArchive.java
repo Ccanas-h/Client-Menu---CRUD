@@ -39,7 +39,7 @@ public class ExportToNewArchive extends AbstractExport {
 					.append(separador)
 					.append(cliente3.getApellidoCliente())
 					.append(separador)
-					.append(cliente3.getAniosCliente())
+					.append(cliente3.getAniosCliente().toString())
 					.append(separador)
 					.append(cliente3.toString())
 					.append("\n");

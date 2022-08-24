@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import com.edutecno.modelo.CategoryEnum;
 import com.edutecno.modelo.Client;
-import com.edutecno.service.ArchiveService;
 import com.edutecno.service.ExportToArchive;
 import com.edutecno.service.ClientService;
 import com.edutecno.service.ExportToNewArchive;
@@ -19,7 +18,6 @@ public class Menu {
 
 	
 	ClientService clienteServicio = new ClientService(null);
-	ArchiveService archivoServicio = new ArchiveService();
 	ExportToArchive añadeDatos = new ExportToArchive();
 	ExportToNewArchive exportadorDeCero = new ExportToNewArchive();
 	ImportFromArchive importaArchivos = new ImportFromArchive();
@@ -30,13 +28,13 @@ public class Menu {
 	public void iniciarMenu() throws FileNotFoundException, IOException {
 		List<String> opcionesMenu = new ArrayList<>();
 
-		opcionesMenu.add("Listar Clientes");
-		opcionesMenu.add("Agregar Clientes");
-		opcionesMenu.add("Editar Clientes");
-		opcionesMenu.add("Importar datos de Clientes");
-		opcionesMenu.add("Añadir datos de Clientes a un archivo existente");
-		opcionesMenu.add("Exportar datos de Clientes eliminando el archivo anterior");
-		opcionesMenu.add("Salir del programa");
+		opcionesMenu.add("List Clients");
+		opcionesMenu.add("Add Clients");
+		opcionesMenu.add("Edit Clients");
+		opcionesMenu.add("Import Client data from a file");
+		opcionesMenu.add("Add actual Client data to an existing file");
+		opcionesMenu.add("Export actual Client data deleting the previous file");
+		opcionesMenu.add("Exit the program");
 		
 		Menu menu = new Menu();
 		menu.seleccionOpcion(opcionesMenu);
@@ -75,7 +73,7 @@ public class Menu {
 			
 			break;
 
-		default: System.out.println("Escoja una opcion valida");
+		default: System.out.println("Choose a valid option");
 			break;
 		}
 		
@@ -87,9 +85,9 @@ public class Menu {
 		String ruta1 = "src/txt.txt";
 		String ruta2 = "src/excel.csv";
 		
-		System.out.println("------Exportacion de datos de Clientes eliminando registros de clientes anteriores------");
-		System.out.println("Aprete 1 para crear un nuevo archivo de texto con los datos de los clientes creados actualmente");
-		System.out.println("O aprete 2 para crear un nuevo archivo CSV con los datos de ");
+		System.out.println("------Client data export by deleting previous customer records------");
+		System.out.println("Choose 1 to create a new text file with the new clients added");
+		System.out.println("Or choose 2 to create a new CSV file with the new clients added");
 		
 		int eleccionUsuario = sc.nextInt();
 		switch (eleccionUsuario) {
@@ -101,7 +99,7 @@ public class Menu {
 			break;
 		}
 		default:
-			System.out.println("Escoja una opcion valida. Volviendo al menu principal");	
+			System.out.println("Choose a valid option. 1 or 2. Returning to main menu");	
 			Utility.stopAndContinue();
 			break;
 		}
@@ -116,9 +114,9 @@ public class Menu {
 		String ruta1 = "src/txt.txt";
 		String ruta2 = "src/excel.csv";
 		
-		System.out.println("------Importacion de datos de Clientes de archivo .CSV o .TXT------");
-		System.out.println("Aprete 1 para EXTRAER y SUMAR datos desde un archivo.TXT hacia la lista de clientes actual");
-		System.out.println("O aprete 2 para EXTRAER datos desde un archivo.CSV hacia la lista de clientes en uso");
+		System.out.println("------Import of Client data to file .CSV or .TXT------");
+		System.out.println("Press 1 to EXTRACT data from a .TXT file into the current client list");
+		System.out.println("Or Press 2 to EXTRACT data from a .CSV file into the current client list");
 
 		int eleccionUsuario = sc.nextInt();
 		switch (eleccionUsuario) {
@@ -130,7 +128,7 @@ public class Menu {
 			break;
 		}
 		default:
-			System.out.println("Escoja una opcion valida. Volviendo al menu principal");	
+			System.out.println("Choose a valid option. 1 or 2. Returning to main menu");	
 			Utility.stopAndContinue();
 			break;
 		}
@@ -142,9 +140,9 @@ public class Menu {
 		String ruta1 = "src/txt.txt";
 		String ruta2 = "src/excel.csv";
 		
-		System.out.println("------Exportacion de datos de Clientes sin eliminar registros de clientes anteriores------");
-		System.out.println("Aprete 1 para añadir datos de la lista de clientes actual al archivo de texto");
-		System.out.println("O aprete 2 para añadir datos de la lista de clientes actual a un archivo CSV");
+		System.out.println("------Export data client to a file without erasing previous data client------");
+		System.out.println("Press 1 to export the current data client to a TXT file without erasing previous data");
+		System.out.println("Or  Press 2 to export the current data client to a CSV file without erasing previous data");
 
 		int eleccionUsuario = sc.nextInt();
 		switch (eleccionUsuario) {
@@ -158,7 +156,7 @@ public class Menu {
 			break;
 		}
 		default:
-			System.out.println("Escoja una opcion valida. Volviendo al menu principal");	
+			System.out.println("Choose a valid option. 1 or 2. Returning to main menu");	
 			Utility.stopAndContinue();
 			break;		
 			}
@@ -173,16 +171,16 @@ public class Menu {
 		List<String> opcionesMenu = opMenu;
 		int largo = opMenu.size();
 
-		System.out.println("Escoja el numero de la opcion que quiera usar");
+		System.out.println("Choose the desired option");
 		
 		for (int i=0; i<largo; i++ ) {
-			System.out.println("Opcion: "+(i+1)+" "+opMenu.get(i));
+			System.out.println("Option: "+(i+1)+" "+opMenu.get(i));
 		}
 		
 		int eleccionUsuario2 = sc.nextInt();
 		
-		if (eleccionUsuario2 < 1 || eleccionUsuario2 > 6) {
-			System.out.println("Seleccion no permitida");
+		if (eleccionUsuario2 < 1 || eleccionUsuario2 > 8) {
+			System.out.println("selection Not allowed ");
 		}
 		
 		return eleccionUsuario2; 
@@ -191,23 +189,23 @@ public class Menu {
 
 
 	public void agregarCliente() {
-		System.out.println("----------- Crear Cliente -----------");
+		System.out.println("----------- Create Client -----------");
 		
 		
 		
-		System.out.println("Ingrese RUT de cliente");
+		System.out.println("Enter Client RUT (National ID)");
 		String runCliente = sc.next(); 
-		System.out.println("Ingrese nombre de cliente");
+		System.out.println("Enter Client Name");
 		String nombreCliente = sc.next(); 
-		System.out.println("Ingrese apellido de cliente");
+		System.out.println("Enter the customer's last name.");
 		String apellidoCliente = sc.next(); 
-		System.out.println("Ingrese años de cliente");
-		String aniosCliente = sc.next(); 
+		System.out.println("Enter customer age");
+		Integer aniosCliente = sc.nextInt(); 
 		CategoryEnum nombreCategoria = CategoryEnum.Activo;
 		
 		clienteServicio.agregarCliente(runCliente, nombreCliente, apellidoCliente, aniosCliente, nombreCategoria);
 		
-		System.out.println("Cliente creado con datos agregados correctamente");
+		System.out.println("Client created correctly");
 		Utility.stopAndContinue();
 		
 	}
@@ -230,9 +228,9 @@ public class Menu {
 	
 	private void terminarPrograma() {
 		
-		System.out.println("Gracias por usar el sistema, nos vemos !");
+		System.out.println("Thanks for using the program, Good Bye!");
 		Utility.stopAndContinue();
-		System.out.println("Sistema terminado de forma correcta");
+		System.out.println("Exiting the program");
 		Utility.stopAndContinue();
 		System.exit(0);
 	}

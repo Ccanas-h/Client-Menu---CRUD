@@ -5,10 +5,10 @@ public class Client {
 	private String runCliente;
 	private String nombreCliente;
 	private String apellidoCliente;
-	private String aniosCliente;
+	private Integer aniosCliente;
 	private CategoryEnum nombreCategoria;
 	
-	public Client(String runCliente, String nombreCliente, String apellidoCliente, String aniosCliente,
+	public Client(String runCliente, String nombreCliente, String apellidoCliente, Integer aniosCliente,
 			CategoryEnum nombreCategoria) {
 		super();
 		this.runCliente = runCliente;
@@ -42,11 +42,11 @@ public class Client {
 		this.apellidoCliente = apellidoCliente;
 	}
 
-	public String getAniosCliente() {
+	public Integer getAniosCliente() {
 		return aniosCliente;
 	}
 
-	public void setAniosCliente(String aniosCliente) {
+	public void setAniosCliente(Integer aniosCliente) {
 		this.aniosCliente = aniosCliente;
 	}
 

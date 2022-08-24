@@ -35,7 +35,7 @@ public class ImportFromArchive extends AbstractImport{
 			cs.agregarCliente(records.get(i).get(0), 
 					records.get(i).get(1), 
 					records.get(i).get(2), 
-					records.get(i).get(3), 
+					Integer.parseInt(records.get(i).get(3)), 
 					CategoryEnum.valueOf(records.get(i).get(4)));
 			
 		}
